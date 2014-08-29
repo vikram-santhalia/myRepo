@@ -4,8 +4,7 @@ angular.module( 'engageApp', [
   'ext.dateRangePicker',
   'ngAnimate',
   'angular-growl',
-  'angularFileUpload',
-  'angular-loading-bar'
+  'angularFileUpload'
 ])
 
 .run(function($rootScope) {
