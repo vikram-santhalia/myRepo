@@ -188,4 +188,4 @@ $(document).on("click","#piechart", function() {
       $("#padWidthStack").css( { display: 'none' });
       drawAreaChart();
 
-  }, 0 );
+  }, 100 );
