@@ -133,22 +133,10 @@ function setStyle(x,y){
 
 
 $( document ).ready(function() {
-      /*console.log("element:",$('#flotcontainer'));
-      $('#flotcontainer').load('index.html', function(){ 
-        console.log("sdsd");
-      });
       setStyle(890,220);
-      $("#chartLegend").css( { display: 'none' });
-      $("#chartLegendPie").css( { display: 'none' });
-      $("#padHeightArea").css( { display: 'block' });
-      $("#padWidthArea").css( { display: 'block' });
-      $("#padHeightStack").css( { display: 'none' });
-      $("#padWidthStack").css( { display: 'none' });
-      drawAreaChart();*/
 });
 
 $(document).on("click","#areachart", function() {
-       console.log("gets called");
       $("#chartLegend").css( { display: 'none' });
       $("#chartLegendPie").css( { display: 'none' });
       $("#padHeightArea").css( { display: 'block' });
@@ -180,6 +168,7 @@ $(document).on("click","#piechart", function() {
 
 
   setTimeout( function(){
+      setStyle(890,220);
       $("#chartLegend").css( { display: 'none' });
       $("#chartLegendPie").css( { display: 'none' });
       $("#padHeightArea").css( { display: 'block' });
@@ -188,4 +177,4 @@ $(document).on("click","#piechart", function() {
       $("#padWidthStack").css( { display: 'none' });
       drawAreaChart();
 
-  }, 100 );
+  }, 500 );
