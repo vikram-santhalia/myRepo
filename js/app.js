@@ -1,4 +1,5 @@
 angular.module( 'engageApp', [
+  'angular-loading-bar',
   'ui.router',
   'ui.bootstrap',
   'ext.dateRangePicker',
@@ -139,7 +140,7 @@ angular.module( 'engageApp', [
       {
         'name': "Summary Dashboard",
         route: "./views/tab1.html",
-        active: false,
+        active: true,
         icon:"images/icon_1.png",
         disabled: false
       },
@@ -153,7 +154,7 @@ angular.module( 'engageApp', [
       {
         'name': "Saved Segments",
         route: "./views/tab3.html",
-        active: true,
+        active: false,
         icon:"images/icon_3.png",
         disabled: false
       },
