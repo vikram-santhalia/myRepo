@@ -1,11 +1,11 @@
 angular.module( 'engageApp', [
-  'angular-loading-bar',
   'ui.router',
   'ui.bootstrap',
   'ext.dateRangePicker',
   'ngAnimate',
   'angular-growl',
-  'angularFileUpload'
+  'angularFileUpload',
+  'angular-loading-bar'
 ])
 
 .run(function($rootScope) {
