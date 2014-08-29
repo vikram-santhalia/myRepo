@@ -1,0 +1,46 @@
+<div class="row heading custom-row" ng-controller="facebookCtrl">
+    <h4>Facebook</h4>
+  <div class="row custom-row">
+    <div class="col-md-6 margin-top-10 input_row ">
+      <input type="text" ng-model="fbTitle" class="form-control" placeholder="Title">
+      <textarea class="form-control" ng-model="fbDesc" cols="10" placeholder="Text"></textarea>
+      <span class="btn btn-default btn-file">
+        Upload Banner <input type="file" nv-file-select="" uploader="fb.uploader">
+      </span>
+    </div>
+    <div class="col-md-5 margin-top-10 custom-row">
+      <div class="banner_preview" >
+        <div class="row fixed_row">
+          <div class="fb_title">
+            <h5>{{fbTitle}}</h5>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-7">
+            <div class="fb_banner_preview"  >
+              <span ng-class="{remove:fb.uploader.queue.length > 0}">Banner Preview</span>
+              <div class="banners" ng-repeat="item in fb.uploader.queue">
+                <div>
+                  <div ng-show="fb.uploader.isHTML5" ng-thumb="{ file: fb.uploader.queue[fb.uploader.queue.length - 1]._file, height: 135 }">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="fbBannerDesc">
+              <p>{{fbDesc}}</p>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  <div class="row custom-row">
+    <div class="pull-right save_skip">
+      <div class="btn btn-sm btn-default" ng-click="skip('facebook',$index)">SKIP</div>
+      <div class="btn btn-sm btn-primary" ng-click="saved('facebook',$index)">SAVE &amp; CONTINUE</div>
+    </div>
+  </div>
+</div>  

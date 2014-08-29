@@ -1,0 +1,22 @@
+<div class="tab4">
+  <div class="row">
+    <div class="seg_rule_heading">
+      <h3>Upload Ad Content </h3>
+    </div>
+    <span class="segment_name_title">Name:</span>
+    <div class="segment_name">
+      Segment Name
+    </div>
+  </div>
+  <div class="row">
+    <span class="segment_tabs_title">Channels:</span>
+    <tabset fade="true" class="bounce">
+      <tab ng-repeat="adtab in adTabs" 
+           heading="{{adtab.name}}" 
+           active="adtab.active" 
+           disabled="adtab.disabled" >
+           <div class="active_container" ng-include src="adtab.route"></div>
+      </tab>
+    </tabset>
+  </div>
+</div>

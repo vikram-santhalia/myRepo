@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html ng-app="engageApp">
+<head>
+    <title>Engage-360</title>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="style/animate.css" rel="stylesheet" />
+    <link href="style/ng-animation.css" rel="stylesheet" />
+    <link href="style/style.css" rel="stylesheet" />
+    <link href="style/angular-growl.min.css" rel="stylesheet" />
+    <link href="ext/daterangepicker/daterangepicker.css" rel="stylesheet" />
+    <link href="fonts/font-awesome.css" rel="stylesheet" />
+
+</head>
+<body ng-controller="engageAppCtrl" >
+  <div class="mygrowl fadeInDown" growl></div>
+  <div class="topnav">
+    <div class="logo">
+      <img src="images/logo.png" />
+    </div>
+    <div class="divider">
+    </div>
+    <div class="title">
+      Engage360
+    </div>
+  </div>
+  <div class="content">
+      <div class="main_tabs" >
+        <tabset>
+          <tab ng-repeat="tab in tabs" class="add_icon" active="tab.active" disabled="tab.disabled">
+          <tab-heading>
+            <img class="tab_icon" src="{{tab.icon}}" /> {{tab.name}}
+          </tab-heading>
+          <div class="tab_container" ng-include src="tab.route"></div>
+          </tab>
+        </tabset>
+      </div>
+  </div>
+
+
+    <!-- Vendor Libs -->
+    <script src="js/angular.js"></script>
+    <script src="js/angular-ui-router.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/ui-bootstrap-tpls-0.11.0.js"></script>
+    <script src="ext/daterangepicker/daterangepicker.js"></script>
+    <script src="ext/dateutil.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/angular-animate.js"></script>
+    <script src="js/angular-growl.js"></script>
+    <script src="js/angular-file-upload.js"></script>
+    <script src="js/bootstrap.file-input.js"></script>
+    <script src="js/angular-animate.js"></script>
+
+    <!-- UI Libs -->
+    <script src="bootstrap/js/bootstrap.js"></script>
+
+    <!-- App libs -->
+    <script src="js/app.js"></script>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

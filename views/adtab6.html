@@ -1,0 +1,101 @@
+<div class="row heading custom-row">
+    <h4>Summary</h4>
+  </div>
+  <div class="row custom-row summary_container">
+      <div class="row margin-top-20" ng-if="adContent.display.saved === 'Yes'">
+        <div class="col-md-4">
+          <div class="summaryTitle">
+            <span>Display:</span>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="banner_preview"  >
+            <span ng-class="{remove:display.uploader.queue.length > 0}">Banner Preview</span>
+             <div class="banners" ng-repeat="item in display.uploader.queue">
+                <div>
+                  <div ng-show="display.uploader.isHTML5" ng-thumb="{ file: display.uploader.queue[display.uploader.queue.length - 1]._file, height: 235 }"></div>
+                  </div>
+                </div>
+              </div>
+          </div>
+      </div>
+
+      <div class="row margin-top-20" ng-if="adContent.facebook.saved === 'Yes'">
+        <div class="col-md-4">
+          <div class="summaryTitle">
+            <span>Facebook:</span>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="banner_preview" >
+            <div class="row fixed_row">
+              <div class="fb_title">
+                <h5>{{fbData['title']}}</h5>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-7">
+                <div class="fb_banner_preview"  >
+                  <span ng-class="{remove:fbRoot.uploader.queue.length > 0}">Banner Preview</span>
+                  <div class="banners" ng-repeat="item in fbRoot.uploader.queue">
+                    <div>
+                      <div ng-show="fbRoot.uploader.isHTML5" ng-thumb="{ file: fbRoot.uploader.queue[fbRoot.uploader.queue.length - 1]._file, height: 135 }">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-5">
+                <div class="fbBannerDesc">
+                  <p>{{fbData['desc']}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row margin-top-20" ng-if="adContent.twitter.saved === 'Yes'">
+        <div class="col-md-4">
+          <div class="summaryTitle">
+            <span>Twitter:</span>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <textarea class="form-control" disabled ng-model="adContent.twitter.description" rows="6" cols="30" placeholder="Enter 140 characters"></textarea>
+        </div>
+      </div>
+
+
+      <div class="row margin-top-20" ng-if="adContent.email.saved === 'Yes'">
+        <div class="col-md-4">
+          <div class="summaryTitle">
+            <span>Email:</span>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <input type="text" disabled class="form-control" ng-model="adContent.email.subject" placeholder="Subject">
+          <textarea class="form-control margin-top-10" disabled rows="6" ng-model="adContent.email.description" cols="30" placeholder="Enter the text"></textarea>
+        </div>
+      </div>
+
+      <div class="row margin-top-20" ng-if="adContent.sms.saved === 'Yes'">
+        <div class="col-md-4">
+          <div class="summaryTitle">
+            <span>SMS:</span>
+          </div>
+        </div>
+        <div class="col-md-8">
+           <textarea disabled class="form-control" ng-model="adContent.sms.description" rows="6" cols="30" placeholder="Enter 250 characters"></textarea>
+        </div>
+      </div>
+
+  </div>
+  <div class="row custom-row">
+    <div class="pull-right save_skip save_skip_email">
+      <div class="btn btn-sm btn-default" ng-click="summaryCancel()">CANCEL</div>
+      <div class="btn btn-sm btn-default" ng-click="summaryEdit()">EDIT</div>
+      <div class="btn btn-sm btn-primary" ng-click="summaryActivate()">ACTIVATE</div>
+    </div>
+  </div>

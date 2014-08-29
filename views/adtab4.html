@@ -1,0 +1,15 @@
+<div class="row heading custom-row">
+    <h4>Email</h4>
+  </div>
+  <div class="row custom-row">
+    <div class="col-md-6 margin-top-10 input_row ">
+      <input type="text" class="form-control" ng-model="emailSubject" placeholder="Subject">
+      <textarea class="form-control margin-top-10" rows="6" ng-model="emailDesc" cols="30" placeholder="Enter the text"></textarea>
+    </div>
+  </div>
+  <div class="row custom-row">
+    <div class="pull-right save_skip save_skip_email">
+      <div class="btn btn-sm btn-default" ng-click="skip('email',$index)">SKIP</div>
+      <div class="btn btn-sm btn-primary" ng-click="saved('email',$index)">SAVE &amp; CONTINUE</div>
+    </div>
+  </div>

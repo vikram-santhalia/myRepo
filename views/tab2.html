@@ -1,0 +1,116 @@
+<div class="row">
+  <div class="col-md-9">
+   <div class="panel panel-default mypanel">
+    <div class="panel-body rule-panel">
+      <div class="row myrow">
+      <div class="rule_heading">
+        <h3>Create New Segement</h3>
+      </div>
+      <div class="rule_name">
+        <form class="form-horizontal" role="form">
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Segment Name:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" placeholder="">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Description:</label>
+            <div class="col-sm-10">
+              <textarea class="form-control" placeholder=""></textarea>
+            </div>
+          </div>
+        </form>
+      </div> 
+    </div>
+    <div class="row myrow">
+      <div class="rule">
+        <select class="form-control action"
+          data-ng-options="action.name for action in statementTelcoData" 
+          data-ng-model="statementOptions"
+        > 
+      </select>
+        <select class="form-control condition"
+          data-ng-options="conditions.name for conditions in ruleConditionData" 
+          data-ng-model="conditionOptions"
+        >
+        <input type="text" class="form-control statement" />
+        <div class="buttons">
+           <div class="add_btn" ng-click="addRule(-1)" ng-disabled="rules.length > 1">
+            <img src="./images/p.png" />
+          </div>
+          <div class="tick_btn" ng-click="tickRule(-1)" ng-class="{remove_button: rules.length > 0}" >
+            <img src="./images/tick.png" />
+          </div>
+          <div class="cross_btn remove_button" >
+            <img src="./images/d.png" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+     <div class="row myrow myrule" ng-repeat="rule in rules">
+      <select class="form-control operator"
+        data-ng-options="o.name for o in options" 
+        data-ng-model="selectedOption"
+        data-ng-change="changeCondition(selectedOption,$index)"
+      >
+      </select>
+      <div class="rule">
+        <select class="form-control action"
+          data-ng-options="action.name for action in statementTelcoData" 
+          data-ng-model="statementOptions"
+        > 
+      </select>
+        <select class="form-control condition"
+          data-ng-options="conditions.name for conditions in ruleConditionData" 
+          data-ng-model="conditionOptions"
+        >     
+        </select>
+        <input type="text" class="form-control statement" />
+        <div class="buttons">
+          <div class="add_btn" ng-click="addRule($index)">
+            <img src="./images/p.png" />
+          </div>
+          <div class="cross_btn" ng-click="removeRule($index)">
+            <img src="./images/d.png" />
+          </div>
+          <div class="tick_btn" ng-click="tickRule($index)" ng-class="{remove_button: rules.length > $index + 1}">
+            <img src="./images/tick.png" />
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+    <div class="row pull-right action-buttons myrow">
+      <div class="btn btn-default" ng-click="cancel()">Cancel</div>
+      <div class="btn btn-primary" ng-click="save()">Save</div>
+    </div>
+    </div>
+  </div>
+</div>
+
+
+  <div class="col-md-3">
+  
+  <div class="panel panel-default results-panel">
+    <div class="panel-heading">
+      <h3 class="panel-title text-center">Users Found</h3>
+    </div>
+    <div class="panel-body ">
+      
+      <div ng-repeat="metric in metrics">
+        <span class="count_text">{{metric.name}}&nbsp;({{metric.formattedValue}})</span>
+        <progressbar value="metric.value" type="{{metric['type']}}" max="metrics[0].value">
+          <b></b>
+        </progressbar>
+    </div>
+  </div>
+  </div>
+</div>

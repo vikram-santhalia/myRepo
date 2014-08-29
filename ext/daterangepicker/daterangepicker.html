@@ -1,0 +1,41 @@
+<div class="dropdown date-range">
+  <button class="btn btn-sm btn-default" ng-click='toggleOpen()'>
+    <span class="fa fa-calendar"></span> {{ rangeDisplayView }} <b class="caret"></b>
+  </button>
+  <ul class="dropdown-menu" ng-style="{display: (isOpen() && 'block') || 'none', top: position.top+'px', left: position.left+'px'}">
+    <li class="css-table">
+
+      <div ng-model="localRange.from" class="dt-box">
+          <minimal-datepicker min="opts.from.minDate" max="opts.from.maxDate" on-selected="fromDtChanged(date)"></minimal-datepicker>
+      </div>
+
+      <div ng-model="localRange.to" class="dt-box">
+          <minimal-datepicker min="opts.to.minDate" max="opts.to.maxDate"></minimal-datepicker>
+      </div>
+
+      <div class="btn-group-vertical dt-box">
+        <button class="btn btn-sm btn-default" ng-click="customRange.yesterday()" translate="daterangepicker.YESTERDAY"></button>
+        <button class="btn btn-sm btn-default" ng-click="customRange.thisWeek()" translate="daterangepicker.CURRENT_WEEK"></button>
+        <button class="btn btn-sm btn-default" ng-click="customRange.last7Days()" translate="daterangepicker.LAST_7_DAYS"></button>
+        <button class="btn btn-sm btn-default" ng-click="customRange.thisMonth()" translate="daterangepicker.CURRENT_MONTH"></button>
+        <button class="btn btn-sm btn-default" ng-click="customRange.last30Days()" translate="daterangepicker.LAST_30_DAYS"></button>
+        <button class="btn btn-sm btn-default" ng-click="customRange.last3Months()" translate="daterangepicker.LAST_90_DAYS"></button>
+      </div>
+
+    </li>
+
+    <li class="selected-range">
+      <span translate="daterangepicker.SELECTED_RANGE"></span>:
+      <code class='text-primary'>{{ localRange.from|date: 'EEEE, dd MMM yyyy' }}</code> to
+      <code class='text-primary'>{{ localRange.to|date: 'EEEE, dd MMM yyyy' }}</code>
+    </li>
+
+  	<li class="divider"></li>
+
+  	<li style="padding: 0 10px 5px;" class="pull-right">
+			<button class="btn btn-sm btn-default" ng-click="toggleOpen()" translate="_.CANCEL"></button>
+      <button class="btn btn-sm btn-primary" ng-click="applyRange()" translate="_.APPLY"></button>
+  	</li>
+  </ul>
+</div>
+

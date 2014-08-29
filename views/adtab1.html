@@ -1,0 +1,26 @@
+<div class="row heading custom-row">
+    <h4>Display</h4>
+  </div>
+  <div class="row custom-row">
+    <div class="col-md-6 margin-top-10 input_row ">
+      <span class="btn btn-default btn-file">
+        Upload Banner <input type="file" nv-file-select="" uploader="display.uploader">
+      </span>
+    </div>
+    <div class="col-md-5 margin-top-10 custom-row">
+      <div class="banner_preview"  >
+        <span ng-class="{remove:display.uploader.queue.length > 0}">Banner Preview</span>
+        <div class="banners" ng-repeat="item in display.uploader.queue">
+          <div>
+            <div ng-show="display.uploader.isHTML5" ng-thumb="{ file: display.uploader.queue[display.uploader.queue.length - 1]._file, height: 235 }"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row custom-row">
+    <div class="pull-right save_skip">
+      <div class="btn btn-sm btn-default" ng-click="skip('display',$index)">SKIP</div>
+      <div class="btn btn-sm btn-primary" ng-click="saved('display',$index)">SAVE &amp; CONTINUE</div>
+    </div>
+  </div>
