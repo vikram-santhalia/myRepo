@@ -23,8 +23,8 @@
   </div>
   <div class="col-md-9">
     <div class="row mytables">
-      <div class="col-md-4">
-        <table class="table mytable tableDisplay">
+      <div class="col-md-4"  >
+        <table class="table mytable tableDisplay" id="areachart">
           <tr>
             <th class="myheading headingDisplay" colspan="4">Display</th>
           </tr>
@@ -51,8 +51,8 @@
           </tr>
         </table>
       </div>
-      <div class="col-md-4">
-        <table class="table mytable tableEmail">
+      <div class="col-md-4" >
+        <table class="table mytable tableEmail" id="piechart">
           <tr>
             <th class="myheading headingEmail" colspan="4">Email</th>
           </tr>
@@ -80,7 +80,7 @@
         </table>
       </div>
       <div class="col-md-4">
-        <table class="table mytable tableSms">
+        <table class="table mytable tableSms" id="stackchart">
           <tr>
             <th class="myheading headingSms" colspan="4">SMS</th>
           </tr>
@@ -109,7 +109,17 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-12"></div>
+      <div class="col-md-12">
+        <div class="mygraph">
+          <div id="flotcontainer"></div>
+          <div id="padWidthArea"></div>
+          <div id="padHeightArea"></div>
+          <div id="padWidthStack"></div>
+          <div id="padHeightStack"></div>
+          <div id="chartLegend"></div>
+          <div id="chartLegendPie"></div>
+        </div>
+      </div>
     </div>
   </div>
 </div>  

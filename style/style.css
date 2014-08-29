@@ -119,7 +119,7 @@
   }
 
   .logo{
-    width: 99.2px; */
+    width: 99.2px; 
     width: 100px;
     position: absolute;
     left: 2%;
@@ -649,8 +649,13 @@
     margin-top: 101px;
   }
 
-  .save_skip_email{
+  .save_skip_summary{
     margin-top: 57px;
+    margin-bottom: 15px;
+  }
+
+  .save_skip_email{
+    margin-top: 55px;
     margin-bottom: 15px;
   }
 
@@ -855,7 +860,7 @@
   }
 
 
-  canvas {
+  .banner_preview canvas {
     background-color: ##d7d7d7;
     -webkit-box-shadow: 3px 3px 3px 0 #e3e3e3;
     -moz-box-shadow: 3px 3px 3px 0 #e3e3e3;
@@ -952,7 +957,7 @@
   }
 
   .mytables{
-    margin-top:30px;
+    margin-top:10px;
   }
 
   .mytable.table>thead>tr>th,
@@ -969,6 +974,13 @@
     border-radius: 3px;
     padding:10px;
     font-size: 14px;
+    cursor:pointer;
+  }
+
+  .mytable:hover{
+    -webkit-box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.3);
   }
 
   .mytable.tableDisplay{
@@ -1102,3 +1114,98 @@
     height: 25px;
     border-radius: 0px;
   }
+
+  .mygraph{
+    height: 250px;
+    -webkit-box-shadow: 0px 0px 1px 1px rgba(67,80,94,0.1);
+    -moz-box-shadow: 0px 0px 1px 1px rgba(67,80,94,0.1);
+    box-shadow: 0px 0px 1px 1px rgba(67,80,94,0.1);
+    border: 1px solid #ededed;
+  };
+
+  .mygraph {
+    height: 250px;
+    text-align: center;
+    -webkit-box-shadow: 0px 0px 1px 1px rgba(67,80,94,0.1);
+    -moz-box-shadow: 0px 0px 1px 1px rgba(67,80,94,0.1);
+    box-shadow: 0px 0px 1px 1px rgba(67,80,94,0.1);
+    border: 1px solid #ededed;
+    position: relative;
+  }
+
+#flotcontainer{
+   position: absolute;
+   left: 50%;
+   top: 50%; 
+   height:220px;
+   width:890px;
+}
+
+#chartLegend .legendLabel { 
+  padding-left: 5px;
+  text-align: left;
+}
+
+#chartLegend{
+  position: absolute;
+  left: 716px;
+  top: 50px;
+}
+
+#chartLegend tr{
+  height:30px;
+}
+
+#chartLegendPie .legendLabel { 
+  padding-left: 5px;
+  text-align: left;
+}
+
+#chartLegendPie{
+  position: absolute;
+  left: 635px;
+  top: 50px;
+}
+
+#chartLegendPie tr{
+  height:30px;
+}
+
+#padWidthArea{
+
+  width: 847px;
+  height: 1px;
+  background-color: #ffffff;
+  position: absolute;
+  top: 22px;
+  left: 49px;
+}
+
+#padHeightArea{
+  width: 1px;
+  height: 54px;
+  background-color: #ffffff;
+  position: absolute;
+  top: 20px;
+  left: 895px;
+}
+
+#padWidthStack{
+  
+  width: 366px;
+  height: 1px;
+  background-color: #ffffff;
+  position: absolute;
+  top: 22px;
+  left: 297px;
+}
+
+#padHeightStack{
+  width: 1px;
+  height: 20px;
+  background-color: #ffffff;
+  position: absolute;
+  top: 22px;
+  left: 662px;
+}
+
