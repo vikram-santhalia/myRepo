@@ -552,6 +552,11 @@
     background-color: #68b2e5;
   }
 
+  .tab4 .nav-tabs>li.done>a,.tab4 .nav-tabs>li.done>a:focus {
+    color: #ffffff;
+    background-color: #7dca9c;
+  }
+
   .tab4 .nav>li>a:focus {
     text-decoration: none;
     background-color: #68b2e5;
@@ -602,7 +607,7 @@
   .tab4 .nav-tabs > li a:hover:after { border-left-color: #68b2e5 !important; }
   .tab4 .nav-tabs > li.active a:after { border-left-color: #68b2e5 !important; }
 
-  .tab4 .nav-tabs > li.done a:after { border-left-color: green !important; }
+  .tab4 .nav-tabs > li.done a:after { border-left-color: #7dca9c !important; }
 
   .tab4 .nav-tabs > li > a:before { 
 

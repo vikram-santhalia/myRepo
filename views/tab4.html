@@ -12,6 +12,7 @@
     <span class="segment_tabs_title">Channels:</span>
     <tabset fade="true" class="bounce">
       <tab ng-repeat="adtab in adTabs" 
+           class="{{$rootScope.adContent[(adtab.name.toLowerCase())]['saved'] === 'Yes' ? 'done': ''}}" 
            heading="{{adtab.name}}" 
            active="adtab.active" 
            disabled="adtab.disabled" >

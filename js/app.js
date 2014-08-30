@@ -1,7 +1,6 @@
 angular.module( 'engageApp', [
-  'ui.router',
+  'angular-loading-bar',
   'ui.bootstrap',
-  'ext.dateRangePicker',
   'ngAnimate',
   'angular-growl',
   'angularFileUpload'
@@ -36,13 +35,11 @@ angular.module( 'engageApp', [
 .controller('engageAppCtrl',
   [
     "$scope",
-    "$stateParams", 
-    "$state", 
     "$rootScope",
     "growl",
     "FileUploader", 
 
-  function($scope,$stateParams, $state, $rootScope, growl,FileUploader) {
+  function($scope, $rootScope, growl,FileUploader) {
 
     $scope.ruleConditionData = [
       {"name":"Not Equal To"},
@@ -526,7 +523,7 @@ angular.module( 'engageApp', [
 }])
 
 
-.controller('facebookCtrl', function($scope,$stateParams,$rootScope, $state, growl,FileUploader) {
+.controller('facebookCtrl', function($scope,$rootScope, growl,FileUploader) {
   $scope.fb = {};
   $scope.fbTitle = '';
   $scope.fbDesc = '';
