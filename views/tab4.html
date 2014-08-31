@@ -10,13 +10,13 @@
   </div>
   <div class="row">
     <span class="segment_tabs_title">Channels:</span>
-    <tabset fade="true" class="bounce">
+    <tabset fade="true">
       <tab ng-repeat="adtab in adTabs" 
            class="{{$rootScope.adContent[(adtab.name.toLowerCase())]['saved'] === 'Yes' ? 'done': ''}}" 
            heading="{{adtab.name}}" 
            active="adtab.active" 
            disabled="adtab.disabled" >
-           <div class="active_container animated fadeIn" ng-include src="adtab.route" ></div>
+           <div class="active_container animated pulse" ng-include src="adtab.route" ></div>
       </tab>
     </tabset>
   </div>

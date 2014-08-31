@@ -137,6 +137,7 @@ $( document ).ready(function() {
 });
 
 $(document).on("click","#areachart", function() {
+      animationClick("#flotcontainer", "animated fadeIn");
       $("#chartLegend").css( { display: 'none' });
       $("#chartLegendPie").css( { display: 'none' });
       $("#padHeightArea").css( { display: 'block' });
@@ -147,6 +148,7 @@ $(document).on("click","#areachart", function() {
 });
 
 $(document).on("click","#piechart", function() {
+      animationClick("#flotcontainer", "animated fadeIn");
       $("#chartLegendPie").css( { display: 'block' });
       $("#chartLegend").css( { display: 'none' });
       $("#padHeightArea").css( { display: 'none' });
@@ -157,6 +159,7 @@ $(document).on("click","#piechart", function() {
 });
 
      $(document).on("click","#stackchart", function() {
+      animationClick("#flotcontainer", "animated fadeIn");
       $("#chartLegend").css( { display: 'block' });
       $("#chartLegendPie").css( { display: 'none' });
       $("#padHeightArea").css( { display: 'none' });
@@ -178,3 +181,31 @@ $(document).on("click","#piechart", function() {
       drawAreaChart();
 
   }, 500 );
+
+
+
+
+  function animationHover(element, animation){
+  element = $(element);
+  element.hover(
+    function() {
+      element.addClass('animated ' + animation);
+    },
+    function(){
+      //wait for animation to finish before removing classes
+      window.setTimeout( function(){
+        element.removeClass('animated ' + animation);
+      }, 2000);
+    }
+  );
+};
+
+
+function animationClick(element, animation){
+  element = $(element);
+      element.addClass('animated ' + animation);
+      //wait for animation to finish before removing classes
+      window.setTimeout( function(){
+          element.removeClass('animated ' + animation);
+      }, 2000);
+};
