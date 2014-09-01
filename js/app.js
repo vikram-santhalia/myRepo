@@ -155,7 +155,7 @@ angular.module( 'engageApp', [
         disabled: false
       },
       {
-        'name': "Activate Segments",
+        'name': "Engage Segments",
         route: "./views/tab4.html",
         active: false,
         icon:"images/icon_4.png",
@@ -308,6 +308,12 @@ angular.module( 'engageApp', [
     }
   }
 
+  $scope.engagedSegment = "Segment Name";
+
+  $scope.engageSegment = function(segment){
+    $scope.engagedSegment = segment;
+    $scope.tabs[3].active = true;
+  }
 
   $scope.status = {
     isFirstOpen: true,
@@ -360,6 +366,7 @@ angular.module( 'engageApp', [
 
     $scope.options = [{ name: "AND", id: 1 }, { name: "OR", id: 2 }];
     $scope.selectedOption = $scope.options[0];
+  
 
     $scope.addRule = function(value){
       id++;
@@ -433,14 +440,14 @@ angular.module( 'engageApp', [
     }
 
     $scope.decreaseMetrics = function(){
-      for(var i=0; i<$scope.metrics.length; i++){
+      for(var i=1; i<$scope.metrics.length; i++){
         $scope.metrics[i]['value'] = decreaseValue($scope.metrics[i]['value'],5);
         $scope.metrics[i]['formattedValue'] = numberWithCommas($scope.metrics[i]['value']);
       } 
     }
 
     $scope.increaseMetrics = function(){
-      for(var i=0; i<$scope.metrics.length; i++){
+      for(var i=1; i<$scope.metrics.length; i++){
         $scope.metrics[i]['value'] = increaseValue($scope.metrics[i]['value'],5);
         $scope.metrics[i]['formattedValue'] = numberWithCommas($scope.metrics[i]['value']);
       } 
@@ -471,9 +478,53 @@ angular.module( 'engageApp', [
       $scope.metrics[i]['formattedValue'] = numberWithCommas($scope.metrics[i]['value']);
     }
 
-    
+    $scope.savedSegments = [
+      {
+        name: "Segment 1",
+        reach: "5388453"
+      },
+      {
+        name: "Segment 2",
+        reach: "2178021"
+      },
+      {
+        name: "Segment 3",
+        reach: "3300913"
+      },
+      {
+        name: "Segment 4",
+        reach: "1338100"
+      }
+    ];
+
+    for(var i=0; i<$scope.savedSegments.length; i++){
+      $scope.savedSegments[i]['formattedValue'] = numberWithCommas($scope.savedSegments[i]['reach']);
+    }
+
+    for(var i=0; i<$scope.savedSegments.length; i++){
+      $scope.savedSegments[i]['maxValue'] = $scope.metrics[0].value;
+    }
+
+    $scope.segmentValue = {
+      segmentName : '',
+      segmentDesc : ''
+    };
+
     $scope.save = function(){
-      growl.addSuccessMessage("Your segment has been saved.");
+      if(!$scope.segmentValue.segmentName || $scope.segmentValue.segmentName === ''
+        ||!$scope.segmentValue.segmentDesc || $scope.segmentValue.segmentDesc === ''){
+        growl.addErrorMessage("Please add a name and description to save your Segment");
+      }
+      else{
+        var segmentToSave = {
+          name: $scope.segmentValue.segmentName,
+          maxValue : $scope.metrics[0].value,
+          formattedValue : numberWithCommas($scope.metrics[$scope.metrics.length - 1].value),
+          reach: $scope.metrics[$scope.metrics.length - 1].value
+        };
+        $scope.savedSegments.unshift(segmentToSave);
+        growl.addSuccessMessage("Your segment "+$scope.segmentValue.segmentName.toUpperCase()+" has been saved.");
+      } 
     };
 
     $scope.summaryActivate = function(){
