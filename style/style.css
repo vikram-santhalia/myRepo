@@ -147,6 +147,11 @@
     background: url('../images/icon_1.png');
   }
 
+  .insight img{
+    margin-left: 54px;
+    height:465px;
+  }
+
   .outer_wrapper {
     position: absolute;
     top: 10px;

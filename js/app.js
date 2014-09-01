@@ -300,10 +300,14 @@ angular.module( 'engageApp', [
     }
   }
 
-  $scope.engagedSegment = "Segment Name";
+  $scope.engagedSegment = {
+    name:"Segment Name",
+    desc:"Segment Description"
+  };
 
-  $scope.engageSegment = function(segment){
-    $scope.engagedSegment = segment;
+  $scope.engageSegment = function(segment,desc){
+    $scope.engagedSegment.name = segment;
+    $scope.engagedSegment.desc = desc;
     $scope.tabs[3].active = true;
   }
 
@@ -473,18 +477,22 @@ angular.module( 'engageApp', [
     $scope.savedSegments = [
       {
         name: "Segment 1",
+        desc: "",
         reach: "5388453"
       },
       {
         name: "Segment 2",
+        desc: "",
         reach: "2178021"
       },
       {
         name: "Segment 3",
+        desc: "",
         reach: "3300913"
       },
       {
         name: "Segment 4",
+        desc: "",
         reach: "1338100"
       }
     ];
@@ -510,6 +518,7 @@ angular.module( 'engageApp', [
       else{
         var segmentToSave = {
           name: $scope.segmentValue.segmentName,
+          desc: $scope.segmentValue.segmentDesc,
           maxValue : $scope.metrics[0].value,
           formattedValue : numberWithCommas($scope.metrics[$scope.metrics.length - 1].value),
           reach: $scope.metrics[$scope.metrics.length - 1].value
@@ -520,6 +529,12 @@ angular.module( 'engageApp', [
     };
 
     $scope.summaryActivate = function(){
+      var tempGroup = {
+        title: $scope.savedSegments[0].name,
+        open: true,
+        content: $scope.savedSegments[0].desc
+      };
+      $scope.groups.unshift(tempGroup);
       growl.addSuccessMessage("Your segment has been Engaged.");
       flushRootscopeData();
     };
