@@ -4,7 +4,11 @@
   </div>
   <div class="col-md-9">
     <div class="dashboard_heading">
-      <h3>Heading Name</h3>
+      <h3 
+        ng-repeat="group in groups"
+        ng-show="group.open === true"
+        >{{group.title}}
+      </h3>
     </div>
   </div>
 </div>  
@@ -23,87 +27,30 @@
   </div>
   <div class="col-md-9">
     <div class="row mytables">
-      <div class="col-md-4"  >
-        <table class="table mytable tableDisplay" id="areachart">
+      <div class="col-md-4"  ng-repeat="table in telcoTables">
+        <table 
+          class="table mytable {{table.className}}" 
+          id="{{table.id}}"
+          ng-class="{active: table.active === true}"
+          ng-click="showTable($index)"
+        >
           <tr>
-            <th class="myheading headingDisplay" colspan="4">Display</th>
+            <th 
+              class="myheading {{table.headingClass}}" 
+              colspan="4">{{table.heading}}
+            </th>
           </tr>
-          <tr>
-            <td class="myicon" rowspan="4"><img src="images/icon_6.png" /></td>
-            <td class="left-aligned">Impressions</td>
+          <tr ng-repeat="value in table.values">
+            <td 
+              ng-show="value.icon"
+              class="myicon" 
+              rowspan="4"
+            >
+              <img src="{{value.icon}}" />
+            </td>
+            <td class="left-aligned">{{value.key}}</td>
             <td class="center-aligned">-</td>
-            <td class="right-aligned">5999391</td>
-          </tr>
-          <tr>
-            <td class="left-aligned">Clicks</td>
-            <td class="center-aligned">-</td>
-            <td class="right-aligned">781032</td>
-          </tr>
-          <tr>
-            <td class="left-aligned">CTR</td>
-            <td class="center-aligned">-</td>
-            <td class="right-aligned">0.29</td>
-          </tr>
-          <tr>
-            <td class="left-aligned">Ad Spent</td>
-            <td class="center-aligned">-</td>
-            <td class="right-aligned">139472</td>
-          </tr>
-        </table>
-      </div>
-      <div class="col-md-4" >
-        <table class="table mytable tableEmail" id="piechart">
-          <tr>
-            <th class="myheading headingEmail" colspan="4">Email</th>
-          </tr>
-          <tr>
-            <td class="myicon" rowspan="4"><img src="images/icon_7.png" /></td>
-            <td class="left-aligned">Sent</td>
-            <td class="center-aligned">-</td>
-            <td class="right-aligned">3500</td>
-          </tr>
-          <tr>
-            <td class="left-aligned">Opened</td>
-            <td class="center-aligned">-</td>
-            <td class="right-aligned">2500</td>
-          </tr>
-          <tr>
-            <td class="left-aligned">Saved</td>
-            <td class="center-aligned">-</td>
-            <td class="right-aligned">1000</td>
-          </tr>
-          <tr>
-            <td class="left-aligned">Clicked</td>
-            <td class="center-aligned">-</td>
-            <td class="right-aligned">3800</td>
-          </tr>
-        </table>
-      </div>
-      <div class="col-md-4">
-        <table class="table mytable tableSms" id="stackchart">
-          <tr>
-            <th class="myheading headingSms" colspan="4">SMS</th>
-          </tr>
-          <tr>
-            <td class="myicon" rowspan="4"><img src="images/icon_8.png" /></td>
-            <td class="left-aligned">Sent</td>
-            <td class="center-aligned">-</td>
-            <td class="right-aligned">170984</td>
-          </tr>
-          <tr>
-            <td class="left-aligned">Deliverd</td>
-            <td class="center-aligned">-</td>
-            <td class="right-aligned">151983</td>
-          </tr>
-          <tr>
-            <td class="left-aligned">Career</td>
-            <td class="center-aligned">-</td>
-            <td class="right-aligned">576</td>
-          </tr>
-          <tr>
-            <td class="left-aligned">Bounced</td>
-            <td class="center-aligned">-</td>
-            <td class="right-aligned">1191</td>
+            <td class="right-aligned">{{value.value}}</td>
           </tr>
         </table>
       </div>

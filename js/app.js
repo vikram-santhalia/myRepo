@@ -202,6 +202,7 @@ angular.module( 'engageApp', [
 
   $scope.displayTable = [
     {
+      icon:'images/icon_6.png',
       key: 'Impressions',
       value: '5999391'
     },
@@ -221,6 +222,7 @@ angular.module( 'engageApp', [
 
   $scope.emailTable = [
     {
+      icon:'images/icon_7.png',
       key: 'Sent',
       value: '3500'
     },
@@ -240,6 +242,7 @@ angular.module( 'engageApp', [
 
   $scope.smsTable = [
     {
+      icon:'images/icon_8.png',
       key: 'Sent',
       value: '170873'
     },
@@ -256,6 +259,54 @@ angular.module( 'engageApp', [
       value: '2113'
     }    
   ];
+
+  $scope.telcoTables=[
+    {
+      values: $scope.displayTable,
+      className: "tableDisplay",
+      id: "areachart",
+      headingClass: "headingDisplay",
+      heading:"Display",
+      active: true
+    },
+    {
+      values: $scope.emailTable,
+      className: "tableEmail",
+      id: "piechart",
+      headingClass: "headingEmail",
+      heading:"Email",
+      active: false
+    },
+    {
+      values: $scope.smsTable,
+      className: "tableSms",
+      id: "stackchart",
+      headingClass: "headingSms",
+      heading:"SMS",
+      active: false
+    }
+  ];
+
+  $scope.showTable = function(index){
+    var activeValue = $scope.telcoTables[index].active;
+    if(activeValue === false){
+      if(index === 0){
+        $scope.telcoTables[0].active = true;
+        $scope.telcoTables[1].active = false;
+        $scope.telcoTables[2].active = false;
+      }
+      else if(index === 1){
+        $scope.telcoTables[1].active = true;
+        $scope.telcoTables[0].active = false;
+        $scope.telcoTables[2].active = false;
+      }
+      else if(index === 2){
+        $scope.telcoTables[2].active = true;
+        $scope.telcoTables[0].active = false;
+        $scope.telcoTables[1].active = false;
+      }
+    }
+  }
 
 
   $scope.status = {

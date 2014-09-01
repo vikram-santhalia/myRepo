@@ -137,37 +137,37 @@ $( document ).ready(function() {
 });
 
 $(document).on("click","#areachart", function() {
-      animationClick("#flotcontainer", "animated fadeIn");
-      $("#chartLegend").css( { display: 'none' });
-      $("#chartLegendPie").css( { display: 'none' });
-      $("#padHeightArea").css( { display: 'block' });
-      $("#padWidthArea").css( { display: 'block' });
-      $("#padHeightStack").css( { display: 'none' });
-      $("#padWidthStack").css( { display: 'none' });
-      drawAreaChart();
+  animationClick("#flotcontainer", "animated fadeIn");
+  $("#chartLegend").css( { display: 'none' });
+  $("#chartLegendPie").css( { display: 'none' });
+  $("#padHeightArea").css( { display: 'block' });
+  $("#padWidthArea").css( { display: 'block' });
+  $("#padHeightStack").css( { display: 'none' });
+  $("#padWidthStack").css( { display: 'none' });
+  drawAreaChart();
 });
 
 $(document).on("click","#piechart", function() {
-      animationClick("#flotcontainer", "animated fadeIn");
-      $("#chartLegendPie").css( { display: 'block' });
-      $("#chartLegend").css( { display: 'none' });
-      $("#padHeightArea").css( { display: 'none' });
-      $("#padWidthArea").css( { display: 'none' });
-      $("#padHeightStack").css( { display: 'none' });
-      $("#padWidthStack").css( { display: 'none' });
-      drawPieChart();
+  animationClick("#flotcontainer", "animated fadeIn");
+  $("#chartLegendPie").css( { display: 'block' });
+  $("#chartLegend").css( { display: 'none' });
+  $("#padHeightArea").css( { display: 'none' });
+  $("#padWidthArea").css( { display: 'none' });
+  $("#padHeightStack").css( { display: 'none' });
+  $("#padWidthStack").css( { display: 'none' });
+  drawPieChart();
 });
 
-     $(document).on("click","#stackchart", function() {
-      animationClick("#flotcontainer", "animated fadeIn");
-      $("#chartLegend").css( { display: 'block' });
-      $("#chartLegendPie").css( { display: 'none' });
-      $("#padHeightArea").css( { display: 'none' });
-      $("#padWidthArea").css( { display: 'none' });
-      $("#padHeightStack").css( { display: 'block' });
-      $("#padWidthStack").css( { display: 'block' });
-      drawStackChart();
-    });
+$(document).on("click","#stackchart", function() {
+  animationClick("#flotcontainer", "animated fadeIn");
+  $("#chartLegend").css( { display: 'block' });
+  $("#chartLegendPie").css( { display: 'none' });
+  $("#padHeightArea").css( { display: 'none' });
+  $("#padWidthArea").css( { display: 'none' });
+  $("#padHeightStack").css( { display: 'block' });
+  $("#padWidthStack").css( { display: 'block' });
+  drawStackChart();
+});
 
 
   setTimeout( function(){
@@ -185,14 +185,13 @@ $(document).on("click","#piechart", function() {
 
 
 
-  function animationHover(element, animation){
+function animationHover(element, animation){
   element = $(element);
   element.hover(
     function() {
       element.addClass('animated ' + animation);
     },
     function(){
-      //wait for animation to finish before removing classes
       window.setTimeout( function(){
         element.removeClass('animated ' + animation);
       }, 2000);
@@ -204,7 +203,6 @@ $(document).on("click","#piechart", function() {
 function animationClick(element, animation){
   element = $(element);
       element.addClass('animated ' + animation);
-      //wait for animation to finish before removing classes
       window.setTimeout( function(){
           element.removeClass('animated ' + animation);
       }, 2000);
