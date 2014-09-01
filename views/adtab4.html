@@ -1,10 +1,32 @@
-<div class="row heading custom-row">
+<div class="row heading custom-row" ng-controller="emailCtrl">
     <h4>Email</h4>
-  </div>
   <div class="row custom-row">
     <div class="col-md-6 margin-top-10 input_row ">
       <input type="text" class="form-control" ng-model="emailSubject" placeholder="Subject">
-      <textarea class="form-control margin-top-10" rows="6" ng-model="emailDesc" cols="30" placeholder="Enter the text"></textarea>
+      <span class="btn btn-default btn-file">
+        Upload Email File <input type="file" nv-file-select="" uploader="email.uploader">
+      </span>
+    </div>
+    <div class="col-md-5 margin-top-10 custom-row">
+      <div class="banner_preview" >
+        <div class="row fixed_row">
+          <div class="fb_title">
+            <h5>{{emailSubject}}</h5>
+          </div>
+        </div>
+        <div class="row">
+            <div class="email_banner_preview"  >
+              <span ng-class="{remove:email.uploader.queue.length > 0}">Email Preview</span>
+              <div class="banners" ng-repeat="item in email.uploader.queue">
+                <div>
+                  <div ng-show="email.uploader.isHTML5" ng-thumb="{ file: email.uploader.queue[email.uploader.queue.length - 1]._file, height: 183 }">
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        
+      </div>
     </div>
   </div>
   <div class="row custom-row">

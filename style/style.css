@@ -660,7 +660,7 @@
   }
 
   .save_skip_email{
-    margin-top: 55px;
+    margin-top: 13px;
     margin-bottom: 15px;
   }
 
@@ -759,6 +759,17 @@
     margin-right:10px;
     font-weight: bolder;
     position: relative;
+  }
+
+  .email_banner_preview{
+    height: 198px;
+    width: 330px;
+    border: 1px solid #bfbfbf;
+    background-color: #e6e6e6;
+    text-align: center;
+    font-weight: bolder;
+    position: relative;
+    margin: 0 auto;
   }
 
   .fixed_row{

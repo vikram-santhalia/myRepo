@@ -75,8 +75,26 @@
           </div>
         </div>
         <div class="col-md-8">
-          <input type="text" disabled class="form-control" ng-model="adContent.email.subject" placeholder="Subject">
-          <textarea class="form-control margin-top-10" disabled rows="6" ng-model="adContent.email.description" cols="30" placeholder="Enter the text"></textarea>
+          <div class="banner_preview" >
+            <div class="row fixed_row">
+              <div class="fb_title">
+                <h5>{{otherData['emailSubject']}}</h5>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-10">
+                <div class="email_banner_preview"  >
+                  <span ng-class="{remove:emailRoot.uploader.queue.length > 0}">Email Preview</span>
+                  <div class="banners" ng-repeat="item in emailRoot.uploader.queue">
+                    <div>
+                      <div ng-show="emailRoot.uploader.isHTML5" ng-thumb="{ file: emailRoot.uploader.queue[emailRoot.uploader.queue.length - 1]._file, height: 183 }">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
